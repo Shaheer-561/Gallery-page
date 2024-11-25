@@ -1,0 +1,28 @@
+import React from "react";
+
+const Header = () => {
+  const handleGoBack = () => {
+    window.history.back(); // Use the browser's back functionality
+  };
+
+  return (
+    <header className="flex justify-between items-center p-4 bg-blue-600 text-white">
+      {/* Go Back Button (Left) */}
+      <button
+        onClick={handleGoBack}
+        className="go-back-button buttons"  // Added 'go-back-button' class
+      >
+        Go Back
+      </button>
+      
+      {/* Logo (Right) */}
+      <img 
+        src="/Logo.jpg"  // Adjust the path if necessary
+        alt="Logo"
+        className="logo"  // Added 'logo' class for styling
+      />
+    </header>
+  );
+};
+
+export default Header;

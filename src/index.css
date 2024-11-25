@@ -1,0 +1,269 @@
+body{
+  background: linear-gradient(45deg, #111827, #1f2937);
+  margin: 0px;
+  padding: 0px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #111827, #1f2937); 
+  color: white;
+}
+
+/* Futuristic Go Back Button */
+.go-back-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #3b82f6;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.go-back-button:hover {
+  background: #3b82f6; /* Bright blue background */
+  color: #fff; /* White text */
+  box-shadow: 0 0 15px #3b82f6; /* Glow effect */
+}
+
+.go-back-button .arrow {
+  font-size: 18px;
+  display: inline-block;
+  margin-right: 10px; /* Space between arrow and text */
+  transform: translateX(-5px); /* Adjusts arrow position */
+  transition: transform 0.3s ease;
+}
+
+.go-back-button .text {
+  transition: margin-left 0.3s ease;
+}
+
+.go-back-button:hover .arrow {
+  transform: translateX(-10px); /* Arrow slides further left */
+}
+
+.go-back-button:hover .text {
+  margin-left: 10px; /* Text slides slightly on hover */
+}
+
+/* Logo styling */
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Hide overflow so images don't spill out */
+  width: 100%; /* Ensure the container fills the parent width */
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9)); /* Modern gradient background */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  background: linear-gradient(45deg, #111827, #1f2937); /* Subtle shadow for depth */
+}
+
+
+/* Heading Styling */
+.heading {
+
+  text-align: center; /* Ensures the text is centered */
+  left: 45%;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  margin-top: 13px;
+  color: #334155;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder; /* Extra bold */
+  position: relative;
+  display: inline-block; /* Ensures the underline effect is placed under the text */
+  overflow: hidden; /* Prevents overflow of animated underline */
+}
+
+/* Gradient hover effect */
+.heading:hover {
+  background: linear-gradient(135deg, #3b82f6, #3f516b); /* Gradient from blue to dark */
+  -webkit-background-clip: text; /* Clips the gradient to the text */
+  color: transparent; /* Makes the text transparent to reveal the gradient */
+}
+
+/* Underline effect */
+.heading::before {
+  content: ''; /* Invisible line */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #3b82f6; /* Underline color */
+  transition: width 0.3s ease; /* Animates the underline width */
+}
+
+.heading:hover::before {
+  width: 100%; /* Underline expands fully on hover */
+}
+
+/* Slide-in animation for text */
+.heading span {
+  display: inline-block;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Starts off below */
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+/* Keyframes for slide-in effect */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Starts off below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+  }
+}
+
+/* Delay the text animation for each heading */
+.heading:nth-child(1) span {
+  animation-delay: 0.1s;
+}
+
+.heading:nth-child(2) span {
+  animation-delay: 0.2s;
+}
+
+.heading:nth-child(3) span {
+  animation-delay: 0.3s;
+}
+
+/* Styling for the slider (container holding images) */
+.images-container {
+  display: flex;
+  gap: 16px; /* Space between the images */
+  transition: transform 1s ease-in-out; /* Smooth transition for the slider */
+  padding: 10px;
+  justify-content: flex-start;
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
+  width: 100%;
+}
+
+/* Style for each image container */
+.image {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 300px; /* Fixed width for the image */
+  height: 200px; /* Fixed height for the image */
+  position: relative; /* So we can position the text overlay */
+  border-radius: 8px; /* Rounded corners for images */
+  overflow: hidden; /* Ensure images don't spill out */
+}
+
+/* Styling for the images */
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+.image:hover img {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Optional: Style for the image description (if needed) */
+.slide-info {
+  text-align: center;
+  padding: 8px;
+  background-color: #334155; /* Optional: Adds background behind text */
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Left and right button styling */
+/* Left and right button styling */
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: transparent; /* Removed the circle */
+  border-radius: 12px; /* Slightly rounded corners */
+  border: 2px solid #3b82f6; /* Border color matching the button */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button.left {
+  left: 15px;
+}
+
+.button.right {
+  right: 15px;
+}
+
+.arrow-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #3b82f6;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+/* Hover effect for left button */
+.button.left:hover {
+  background-color: rgba(59, 130, 246, 0.1); /* Light background on hover */
+
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5), 0 4px 30px rgba(59, 130, 246, 0.3);
+  border-color: #335f9c; /* Dark border color on hover */
+}
+
+/* Hover effect for right button */
+.button.right:hover {
+  background-color: rgba(59, 130, 246, 0.1); /* Light background on hover */
+
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5), 0 4px 30px rgba(59, 130, 246, 0.3);
+  border-color: #335f9c; /* Dark border color on hover */
+}
+
+/* Arrow color change on hover */
+.button:hover .arrow-text {
+  color: #081b35; /* Arrow changes color when hovering over the button */
+  animation: bounce 0.6s ease-in-out; /* Apply bounce animation */
+}
+
+/* Bounce animation for the arrow */
+@keyframes bounce {
+  0% {
+    transform: translateY(0); /* Start at the original position */
+  }
+  30% {
+    transform: translateY(-5px); /* Move up */
+  }
+  50% {
+    transform: translateY(0); /* Return to original position */
+  }
+  70% {
+    transform: translateY(-2px); /* Move up slightly */
+  }
+  100% {
+    transform: translateY(0); /* Final position */
+  }
+}
